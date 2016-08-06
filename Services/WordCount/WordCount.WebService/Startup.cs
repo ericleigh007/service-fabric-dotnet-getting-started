@@ -11,6 +11,7 @@ namespace WordCount.WebService
     using Microsoft.Owin.StaticFiles;
     using Owin;
     using WordCount.Common;
+    using System.Diagnostics;
 
     public class Startup : IOwinAppBuilder
     {
@@ -36,6 +37,8 @@ namespace WordCount.WebService
 
             appBuilder.UseWebApi(config);
             appBuilder.UseFileServer(fileOptions);
+
+            Debug.WriteLine("The server is at: {physicalFileSystem.Root.ToString)");
         }
     }
 }

@@ -60,18 +60,11 @@
             // this.url    :the url of the requested script (including query string, if any) (urlencoded)
             // this.data   :the data sent, if any ex: foo=bar&a=b (urlencoded)
 
-            var logString = this.method + ' to ' + this.url + ' data: ' + this.data;
+            var logString = 'A ' + this.method + ' to ' + this.url;
+            logString += 'with data: ' + this.data;
 
-            switch (this.method.toLowerCase()) {
-                case 'post':
-                {
-                    $('#logPost').html(logString);
-                }
-                case 'get':
-                {
-                    $('#logGet').html(logString);
-                }
-            }
+            $('#log').html = logString;
+
         }
 
         XMLHttpRequest.prototype.open = function (a, b) {
@@ -136,10 +129,6 @@
 
     <div id="sendResult"></div>
     <div id="count"></div>
-
-    <h1>Current GET request:</h1>
-    <div id="logGet"></div>
-    <h1>Current POST request:</h1>
-    <div id="logPost"></div>
+    <div id="log"></div>
 </body>
 </html>
